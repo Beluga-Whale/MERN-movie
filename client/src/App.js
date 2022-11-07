@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar.jsx'
+import Footer from './components/Footer.jsx'
+import MovieList from './components/MovieList.jsx'
+import CreaterMovie from './components/CreaterMovie.jsx'
+import EditMovie from './components/EditMovie.jsx'
+import DetailMovie from './components/DetailMovie.jsx'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <section className='bg-gray-700 h-auto '>
+        <Routes>
+          <Route path="/" element={<MovieList />} />
+          <Route path='/create-movie' element={<CreaterMovie />} />
+          <Route path="/edit-movie/:id" element={<EditMovie />} />
+          <Route path="/detail-movie/:id" element={<DetailMovie />} />
+        </Routes>
+      </section>
+      <Footer />
     </div>
   );
 }
